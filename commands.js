@@ -74,29 +74,29 @@ function buildSignature(info) {
     // CTAs
     '<div style="line-height:normal;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
     '<span style="color:#000;"><b>Download our </b></span>',
-    '<a href="#" style="color:rgb(200,38,19);"><b>Company Profile</b></a>',
+    '<a href="https://www.combustiontechnology.co.za/wp-content/uploads/2026/04/Combustion-Technology-2026-March-Company-Profile-.pdf" style="color:rgb(200,38,19);"><b>Company Profile</b></a>',
     '<span style="color:#000;"><b>.</b></span></div>',
 
     '<div style="line-height:normal;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
     '<span style="color:#000;"><b>Please complete our</b></span><b>&nbsp;</b>',
-    '<a href="#" style="color:rgb(200,38,19);"><b>Survey</b></a>',
+    '<a href="https://forms.office.com/pages/responsepage.aspx?id=CUpLTIsotkavJVt3AS4mXCe1rFcThslOveTto75FTLFUNVJaTFVHQTFVWFROR0MzV0VOUlNaWjUzNS4u" style="color:rgb(200,38,19);"><b>Survey</b></a>',
     '<span style="color:#000;"><b>, your opinion matters!</b></span></div>',
 
     '<div style="line-height:normal;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
-    '<a href="#" style="color:rgb(200,38,19);"><b>SIGN UP</b></a>',
+    '<a href="https://mailchi.mp/combustiontechnology/sign_up" style="color:rgb(200,38,19);"><b>SIGN UP</b></a>',
     '<span style="color:#000;"><b>&nbsp;for the latest updates on promotions and industry news.</b></span></div>',
 
     '<div style="font-size:10pt;"><b><br></b></div>',
 
     // Social icons
     '<div style="line-height:normal;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
-    '<a href="#" style="text-decoration:none;"><img alt="LinkedIn" width="38" height="49" src="' + BASE_URL + '/assets/linkedin.png" style="width:38px;height:49px;"></a>',
+    '<a href="https://www.linkedin.com/company/combustion-technology-pty-ltd" style="text-decoration:none;"><img alt="LinkedIn" width="38" height="49" src="' + BASE_URL + '/assets/linkedin.png" style="width:38px;height:49px;"></a>',
     '&nbsp;&nbsp;',
-    '<a href="#" style="text-decoration:none;"><img alt="Facebook" width="44" height="49" src="' + BASE_URL + '/assets/facebook.png" style="width:44px;height:49px;"></a>',
+    '<a href="https://www.facebook.com/pg/combustionT" style="text-decoration:none;"><img alt="Facebook" width="44" height="49" src="' + BASE_URL + '/assets/facebook.png" style="width:44px;height:49px;"></a>',
     '&nbsp;',
-    '<a href="#" style="text-decoration:none;"><img alt="YouTube" width="38" height="49" src="' + BASE_URL + '/assets/youtube.png" style="width:38px;height:49px;"></a>',
+    '<a href="https://www.youtube.com/channel/UC41y6hC7ra4w5J4Fq0Hp2rw" style="text-decoration:none;"><img alt="YouTube" width="38" height="49" src="' + BASE_URL + '/assets/youtube.png" style="width:38px;height:49px;"></a>',
     '&nbsp; &nbsp;',
-    '<a href="#" style="text-decoration:none;"><img alt="Instagram" width="40" height="52" src="' + BASE_URL + '/assets/instagram.png" style="width:40px;height:52px;"></a>',
+    '<a href="https://www.instagram.com/combusttech/" style="text-decoration:none;"><img alt="Instagram" width="40" height="52" src="' + BASE_URL + '/assets/instagram.png" style="width:40px;height:52px;"></a>',
     '</div>',
 
     // Banner
@@ -109,12 +109,12 @@ function buildSignature(info) {
 
     '<div style="line-height:1.2;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:8pt;">',
     '<span style="color:#000;">We are committed to best practice in complying with data protection requirements across our entire global operation.&nbsp;You can read our full POPIA Compliance Statement on our </span>',
-    '<a href="#" style="color:rgb(70,120,134);"><u>website</u></a>',
+    '<a href="https://www.combustiontechnology.co.za/privacy-policy/" style="color:rgb(70,120,134);"><u>website</u></a>',
     '<span style="color:#000;">.</span></div>',
 
     '<div style="line-height:1.2;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:8pt;">',
     '<span style="color:#000;">Want to change how you receive emails?&nbsp;You can </span>',
-    '<a href="#" style="color:rgb(70,120,134);"><u>update your preferences</u></a>',
+    '<a href="https://mailchi.mp/combustiontechnology/sign_up" style="color:rgb(70,120,134);"><u>update your preferences</u></a>',
     '<span style="color:#000;">&nbsp;or send an email to </span>',
     '<a href="mailto:info@combustiontechnology.co.za" style="color:rgb(70,120,134);"><u>info@combustiontechnology.co.za</u></a>',
     '<span style="color:#000;">&nbsp;to be removed from our mailing&nbsp;list.</span></div>',
