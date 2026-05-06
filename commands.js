@@ -19,13 +19,11 @@ function onNewMessageCompose(event) {
   var info = JSON.parse(raw);
   var html = buildSignature(info);
 
-  Office.context.mailbox.item.disableClientSignatureAsync(function () {
-    Office.context.mailbox.item.body.setSignatureAsync(
-      html,
-      { coercionType: "html" },
-      function () { event.completed(); }
-    );
-  });
+  Office.context.mailbox.item.body.setSignatureAsync(
+    html,
+    { coercionType: "html" },
+    function () { event.completed(); }
+  );
 }
 
 function buildSignature(info) {
