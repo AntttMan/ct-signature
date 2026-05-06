@@ -55,9 +55,9 @@ function buildSignature(info) {
     '<div style="font-size:10pt;"><br></div>',
 
     // Contact details
-    '<p style="line-height:normal;margin:0;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
-    '<span style="color:#000;"><b>Tel: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></span>',
-    '<span style="color:rgb(0,120,212);"><b>+27 (21) 715 3171 ext. ' + ext + '</b></span></p>',
+    ext ? '<p style="line-height:normal;margin:0;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">' +
+    '<span style="color:#000;"><b>Tel: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </b></span>' +
+    '<span style="color:rgb(0,120,212);"><b>+27 (21) 715 3171 ext. ' + ext + '</b></span></p>' : '',
 
     '<div style="line-height:normal;margin:0;font-family:Aptos,Calibri,Helvetica,sans-serif;font-size:12pt;">',
     '<span style="color:#000;"><b>Cell: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></span>',

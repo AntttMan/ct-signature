@@ -108,9 +108,9 @@
         <input type="text" id="cell" placeholder="e.g. +27 (60) 996 2197">
     </div>
     <div class="field">
-        <label for="extension">Tel Extension</label>
+        <label for="extension">Tel Extension <span style="font-weight:400;color:#605e5c;">(optional)</span></label>
         <input type="text" id="extension" placeholder="e.g. 2001">
-        <div class="hint">The office number is +27 (21) 715 3171 — only enter your extension.</div>
+        <div class="hint">Leave blank if you don't have a desk phone extension.</div>
     </div>
     <div class="field">
         <label for="email">Email (auto-detected)</label>
@@ -155,7 +155,7 @@
             var extension = document.getElementById("extension").value.trim();
             var email = document.getElementById("email").value.trim();
 
-            if (!name || !designation || !cell || !extension) {
+            if (!name || !designation || !cell) {
                 showStatus("Please fill in all fields.", "error");
                 return;
             }
