@@ -5,7 +5,7 @@
            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
            xsi:type="MailApp">
   <Id>b7e4f3a2-8c1d-4e5f-9a6b-2d3c4e5f6a7b</Id>
-  <Version>1.1.0.0</Version>
+  <Version>1.2.0.0</Version>
   <ProviderName>Combustion Technology</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="CT Email Signature"/>
@@ -91,9 +91,9 @@
           <bt:Image id="Icon.80" DefaultValue="https://antttman.github.io/ct-signature/assets/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
-          <bt:Url id="Commands.Url" DefaultValue="https://antttman.github.io/ct-signature/commands.html?v=2"/>
-          <bt:Url id="Taskpane.Url" DefaultValue="https://antttman.github.io/ct-signature/taskpane.html?v=2"/>
-          <bt:Url id="Autorun.Url" DefaultValue="https://antttman.github.io/ct-signature/commands.html?v=2"/>
+          <bt:Url id="Commands.Url" DefaultValue="https://antttman.github.io/ct-signature/commands.html?v=3"/>
+          <bt:Url id="Taskpane.Url" DefaultValue="https://antttman.github.io/ct-signature/taskpane.html?v=3"/>
+          <bt:Url id="Autorun.Url" DefaultValue="https://antttman.github.io/ct-signature/commands.html?v=3"/>
           <bt:Url id="Autorun.Js" DefaultValue="https://antttman.github.io/ct-signature/commands.js"/>
         </bt:Urls>
         <bt:ShortStrings>
