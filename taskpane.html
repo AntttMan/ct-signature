@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 13px;
+            color: #323130;
+            padding: 16px;
+            background: #faf9f8;
+        }
+        h1 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #201f1e;
+        }
+        .subtitle {
+            font-size: 12px;
+            color: #605e5c;
+            margin-bottom: 16px;
+        }
+        .field { margin-bottom: 12px; }
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #323130;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 6px 8px;
+            border: 1px solid #8a8886;
+            border-radius: 2px;
+            font-size: 13px;
+            font-family: inherit;
+            outline: none;
+        }
+        input[type="text"]:focus { border-color: #0078d4; }
+        .hint {
+            font-size: 11px;
+            color: #605e5c;
+            margin-top: 2px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .btn-primary {
+            background: #0078d4;
+            color: #fff;
+        }
+        .btn-primary:hover { background: #106ebe; }
+        .btn-primary:disabled {
+            background: #c8c6c4;
+            cursor: default;
+        }
+        .status {
+            margin-top: 12px;
+            padding: 8px 10px;
+            border-radius: 2px;
+            font-size: 12px;
+            display: none;
+        }
+        .status.success { display: block; background: #dff6dd; color: #107c10; }
+        .status.error   { display: block; background: #fde7e9; color: #a80000; }
+        .status.info    { display: block; background: #deecf9; color: #0078d4; }
+        .divider {
+            border: none;
+            border-top: 1px solid #edebe9;
+            margin: 16px 0;
+        }
+        .current-config {
+            font-size: 12px;
+            color: #605e5c;
+            padding: 8px 10px;
+            background: #f3f2f1;
+            border-radius: 2px;
+        }
+        .current-config b { color: #323130; }
+    </style>
+</head>
+<body>
+    <h1>CT Email Signature</h1>
+    <p class="subtitle">Enter your details below. Your signature will be applied automatically to every new email.</p>
+
+    <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="e.g. Matteo Renecle">
+    </div>
+    <div class="field">
+        <label for="designation">Designation</label>
+        <input type="text" id="designation" placeholder="e.g. Director">
+    </div>
+    <div class="field">
+        <label for="cell">Cell Number</label>
+        <input type="text" id="cell" placeholder="e.g. +27 (60) 996 2197">
+    </div>
+    <div class="field">
+        <label for="extension">Tel Extension</label>
+        <input type="text" id="extension" placeholder="e.g. 2001">
+        <div class="hint">The office number is +27 (21) 715 3171 — only enter your extension.</div>
+    </div>
+    <div class="field">
+        <label for="email">Email (auto-detected)</label>
+        <input type="text" id="email" disabled>
+        <div class="hint">Uses your Outlook account email. Override only if your signature should show a different address.</div>
+    </div>
+
+    <button class="btn btn-primary" id="saveBtn" disabled>Save Signature</button>
+    <div class="status" id="status"></div>
+
+    <hr class="divider">
+    <div id="currentConfig"></div>
+
+    <script>
+        Office.onReady(function (info) {
+            document.getElementById("saveBtn").disabled = false;
+
+            var profileEmail = Office.context.mailbox.userProfile.emailAddress;
+            document.getElementById("email").value = profileEmail;
+
+            var existing = Office.context.roamingSettings.get("ct_signature_info");
+            if (existing) {
+                var data = JSON.parse(existing);
+                document.getElementById("name").value = data.name || "";
+                document.getElementById("designation").value = data.designation || "";
+                document.getElementById("cell").value = data.cell || "";
+                document.getElementById("extension").value = data.extension || "";
+                if (data.email && data.email !== profileEmail) {
+                    document.getElementById("email").value = data.email;
+                    document.getElementById("email").disabled = false;
+                }
+                showCurrentConfig(data);
+            }
+
+            document.getElementById("saveBtn").onclick = save;
+        });
+
+        function save() {
+            var name = document.getElementById("name").value.trim();
+            var designation = document.getElementById("designation").value.trim();
+            var cell = document.getElementById("cell").value.trim();
+            var extension = document.getElementById("extension").value.trim();
+            var email = document.getElementById("email").value.trim();
+
+            if (!name || !designation || !cell || !extension) {
+                showStatus("Please fill in all fields.", "error");
+                return;
+            }
+
+            var info = {
+                name: name,
+                designation: designation,
+                cell: cell,
+                extension: extension,
+                email: email
+            };
+
+            document.getElementById("saveBtn").disabled = true;
+            Office.context.roamingSettings.set("ct_signature_info", JSON.stringify(info));
+            Office.context.roamingSettings.saveAsync(function (result) {
+                document.getElementById("saveBtn").disabled = false;
+                if (result.status === Office.AsyncResultStatus.Succeeded) {
+                    showStatus("Signature saved. It will appear on your next new email.", "success");
+                    showCurrentConfig(info);
+                } else {
+                    showStatus("Failed to save: " + result.error.message, "error");
+                }
+            });
+        }
+
+        function showStatus(msg, type) {
+            var el = document.getElementById("status");
+            el.textContent = msg;
+            el.className = "status " + type;
+        }
+
+        function showCurrentConfig(data) {
+            document.getElementById("currentConfig").innerHTML =
+                '<div class="current-config">' +
+                '<b>Active signature for:</b><br>' +
+                data.name + ' — ' + data.designation + '<br>' +
+                'Cell: ' + data.cell + ' | Ext: ' + data.extension +
+                '</div>';
+        }
+    </script>
+</body>
+</html>
